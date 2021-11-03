@@ -5,7 +5,6 @@ namespace Fulbo12.Core.Formacion
     {
         public Futbolista Futbolista { get; set; }
         public Posicion Posicion { get; set; }
-        public byte NumeroDeLinea { get; set; }
         public byte? NumeroCamiseta { get; set; }
     }
 }
