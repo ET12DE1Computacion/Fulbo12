@@ -5,6 +5,6 @@ namespace Fulbo12.Core.Formacion
     {
         public List<Linea> Lineas { get; set; }
         public string Nombre { get; set; }
-        public Formacion() =>Lineas = new List<Linea>();
+        public Formacion() => Lineas = new List<Linea>();
     }
 }
