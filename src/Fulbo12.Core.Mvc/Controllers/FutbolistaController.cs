@@ -13,8 +13,9 @@ public class FutbolistaController : Controller
 
     public async Task<IActionResult> Listado()
     {
-        var personas = await _unidad.RepoPersona.ObtenerAsync();
-        return View(personas);
+        var futbolistas = await _unidad.RepoFutbolista.ObtenerAsync(orden: fs => fs.OrderBy(f => f.Persona.Nombre),
+                    includes: "Persona,Equipo,Tipofutbolista");
+        return View(futbolistas);
     }
     public async Task<IActionResult> Detalle(short id)
     {

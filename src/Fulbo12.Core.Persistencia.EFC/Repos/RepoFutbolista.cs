@@ -1,3 +1,4 @@
+using System.Data.Common;
 using Fulbo12.Core.Futbol;
 namespace Fulbo12.Core.Persistencia.EFC.Repos;
 
@@ -13,4 +14,11 @@ public class RepoFutbolista : RepoGenerico<Futbolista>, IRepoFutbolista
         => await DbSet.AnyAsync(  f =>  EF.Property<byte>(f, "idPersona") == idPersona
                     &&  EF.Property<byte>(f, "idEquipo") == idEquipo
                     &&  EF.Property<byte>(f, "idTipoFutbolista") == idTipoFutbolista);
+    /*public Futbolista? Detalle(ushort id )
+    {
+        var persona = DbSet.Include(f=>f.Persona)
+                            .Include(f=>f.Equipo)
+                            .Include(f=> f.Tipofutbolista);
+        return(persona);
+    }*/
 }

@@ -22,8 +22,8 @@
             {
                 <tr>
                     <th scope="row"><a asp-action="Detalle"
-                            asp-route-Id="@futbolista.Id">@string.Concat(futbolista.Persona.Nombre, '(',
-                    futbolista.Persona.Pais.Nombre, ')')</a></th>
+                            asp-route-Id="@futbolista.Id">@string.Concat(futbolista.Persona.NombreCompleto, '(',
+                    futbolista.Equipo.Nombre, "-",futbolista.Tipofutbolista.Nombre, ')')</a></th>
                     <td><a asp-action="Detalle" asp-route-Id="@futbolista.Id">Detalle <i class="bi bi-eyeglasses"
                                 style="color: black;"></i></a></td>
                     <td><a asp-action="Modificar" asp-route-Id="@futbolista.Id">Modificar <i class="bi bi-pencil-fill"
