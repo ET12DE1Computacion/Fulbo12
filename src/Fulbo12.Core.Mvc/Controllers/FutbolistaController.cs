@@ -1,12 +1,7 @@
-using Fulbo12.Core.Futbol;
 using Fulbo12.Core.Mvc.ViewModels;
 using Fulbo12.Core.Persistencia;
 using Fulbo12.Core.Persistencia.Excepciones;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.EntityFrameworkCore.Infrastructure;
 
 namespace Fulbo12.Core.Mvc.Controllers;
 
@@ -18,8 +13,8 @@ public class FutbolistaController : Controller
 
     public async Task<IActionResult> Listado()
     {
-        var futbolistas = await _unidad.RepoFutbolista.ObtenerAsync();
-        return View(futbolistas);
+        var personas = await _unidad.RepoPersona.ObtenerAsync();
+        return View(personas);
     }
     public async Task<IActionResult> Detalle(short id)
     {
@@ -92,11 +87,11 @@ public class FutbolistaController : Controller
         {
             await _unidad.GuardarAsync();
         }
-        catch (EntidadDuplicadaException)
+        catch (EntidadDuplicadaException e)
         {
             return NotFound();
         }
-        return RedirectToAction(nameof(Listado));
+        return RedirectToActionPermanent(nameof(Listado));
     }
 
 }

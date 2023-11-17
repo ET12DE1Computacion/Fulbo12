@@ -9,7 +9,7 @@
     <div asp-validation-summary="All"></div>
     <div><input type="hidden" asp-for="@Model.IdFutbolista" /></div>
     <div><input type="hidden" asp-for="@Model.IdPersonaJuego" /></div>
-<h2 class="text-center">@Model.PersonaJugador.Nombre @Model.PersonaJugador.Apellido</h2>
+<h2 class="text-center">@Model.PersonaJugador.Nombre • @Model.PersonaJugador.Apellido</h2>
 <h5 class="text-center"> @Model.PersonaJugador.Pais.Nombre • @Model.PersonaJugador.Altura m.</h5>
     <div class="row g-2 align-items-center">
         <div class="col-auto">
@@ -43,7 +43,7 @@
             <select asp-items="Model.Tipojugador" asp-for="IdTipo" class="form-select">
                 @if (Model.IdTipo == 0)
                 {
-                    <option selected="selected" value="" disabled>Seleccione una tipo</option>
+                    <option selected="selected" value="" disabled>Seleccione un tipo</option>
                 }
             </select>
         </div>

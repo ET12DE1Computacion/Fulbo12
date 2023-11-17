@@ -7,14 +7,14 @@ namespace Fulbo12.Core.Mvc.ViewModels;
 
 public class VMFutbolista
 {
-    public PersonaJuego PersonaJugador { get; set; }
+    public PersonaJuego? PersonaJugador { get; set; }
     public short IdPersonaJuego { get; set; }
-    public SelectList PosicionesJugador { get; set; }
-    public SelectList EquipoJugador { get; set; }
-    public SelectList Tipojugador { get; set; }
+    public SelectList? PosicionesJugador { get; set; }
+    public SelectList? EquipoJugador { get; set; }
+    public SelectList? Tipojugador { get; set; }
     public byte IdTipo { get; set; }
     public byte IdFutbolista {get; set; }
-    public byte IdEquipo { get; set; }
+    public short IdEquipo { get; set; }
     public byte IdPosicion { get; set; }
 
     [Range(50, 99, ErrorMessage = "La valoracion del jugador tiene que estar entre el rango definido")]
@@ -64,9 +64,10 @@ public class VMFutbolista
         //var personaBase = await unidad.RepoPersona.ObtenerPorIdAsync(PersonaJugador.Id);
         var TipoJugador = await unidad.RepoTipoFutbolista.ObtenerPorIdAsync(IdTipo);
         var EquipoJugador =  await unidad.RepoEquipo.ObtenerPorIdAsync(IdEquipo);
+        PersonaJugador = await unidad.RepoPersona.ObtenerPorIdAsync(IdPersonaJuego);
         return new Futbolista()
         {
-            Persona = PersonaJugador,
+            Persona = PersonaJugador!,
             Valoracion = Valoracion,
             Posiciones = new List<Posicion>(),
             //pensar en como hacer para que el futbolista acepte mas de una posicion.
