@@ -20,4 +20,6 @@ public abstract class ConNombre
     [SetsRequiredMembers]
     public ConNombre(string nombre, byte id) : this(nombre)
         => Id = id;
+    public override string ToString()
+        => Nombre;
 }

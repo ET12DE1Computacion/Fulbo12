@@ -17,10 +17,12 @@ public class FutbolistaController : Controller
                     includes: "Persona,Equipo,Tipofutbolista");
         return View(futbolistas);
     }
-    public async Task<IActionResult> Detalle(short id)
+    public async Task<IActionResult> Detalle(ushort id)
     {
-        var futbolista = (await _unidad.RepoFutbolista.ObtenerAsync(filtro: f => f.Id == id, null, "Equipo")).FirstOrDefault();
-        return View(futbolista);
+        var futbolista = await _unidad.RepoFutbolista.DetalleAsync(id);
+        return futbolista is not null ?
+            View(futbolista) :
+            NotFound();
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -88,7 +90,7 @@ public class FutbolistaController : Controller
         {
             await _unidad.GuardarAsync();
         }
-        catch (EntidadDuplicadaException e)
+        catch (EntidadDuplicadaException)
         {
             return NotFound();
         }

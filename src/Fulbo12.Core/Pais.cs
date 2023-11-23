@@ -9,4 +9,6 @@ public class Pais : ConNombre
     [SetsRequiredMembers]
     public Pais(byte id, string nombre, string abreviatura) : base(nombre, id)
         => Abreviatura = abreviatura;
+    public override string ToString()
+        => Nombre;
 }

@@ -1,4 +1,5 @@
 @using Fulbo12.Core;
+@using Fulbo12.Core.Mvc.Views;
 @model IEnumerable<Pais>
 @{
     ViewData["Title"] = "Pais";
@@ -22,17 +23,12 @@
         </thead>
         <tbody class="" >
             @foreach (var pais in Model)
-            {
-                @* <button class="btn btn-primary" type="button" onclick="BanderaListado('bandera', '@pais.Abreviatura')">
-                Previsualización <i class="bi bi-eye"></i>
-                </button> *@
+            {                
                 <tr>
-                    <th scope="row"><img id='@String.Concat("bandera", pais.Abreviatura)' class="img-fluid img-listado" alt=""> <a asp-action="Detalle" asp-route-Id="@pais.Id">@pais.Nombre</a></th>
-                    @* <td><a asp-action="Detalle" asp-route-Id="@pais.Id" id="abreviatura">@pais.Abreviatura</a></td> *@
+                    <th scope="row"><img id="@UtilPais.IdImagen(pais)" src="@UtilPais.UrlBandera(pais)" class="img-fluid img-listado" alt=""> <a asp-action="Detalle" asp-route-Id="@pais.Id">@pais.Nombre</a></th>
                     <td><a asp-action="Detalle" asp-route-Id="@pais.Id">Detalle <i class="bi bi-eyeglasses" style="color: black;"></i></a></td>
                     <td><a asp-action="Modificar" asp-route-Id="@pais.Id">Modificar <i class="bi bi-pencil-fill" style="color: black;"></i></a></td>                    
                 </tr>
-                @* BanderaListado('@String.Concat("bandera", pais.Abreviatura)', @pais.Abreviatura); *@
             }
         </tbody>
     </table>

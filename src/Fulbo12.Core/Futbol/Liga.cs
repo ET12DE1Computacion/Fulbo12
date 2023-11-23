@@ -12,4 +12,6 @@ public class Liga : ConNombre
         Equipos = new List<Equipo>();
     }
     public Liga() { }
+    public override string ToString()
+        => $"{Nombre}({Pais.Nombre})";
 }

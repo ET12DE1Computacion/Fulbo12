@@ -1,4 +1,5 @@
 @using Fulbo12.Core.Futbol;
+@using Fulbo12.Core.Mvc.Views;
 @model IEnumerable<Liga>;
 @{
     ViewData["Title"] = "Pais - Detalle";
@@ -6,13 +7,14 @@
 
 @if (Model.Count()!=0)
 {
-    <h1 class="text-center">@Model.First().Pais.Nombre</h1>
+    var pais = Model.First().Pais;
+    <h1 class="text-center">@pais.Nombre</h1>
     <div class="text-center">
-        
+        <img src="@UtilPais.UrlBandera(pais)" id="@UtilPais.IdImagen(pais)" class="img-fluid">
     </div>
-<br><br>
-<h1>Ligas</h1>
-<table class="table table-striped">
+    <br><br>
+    <h1>Ligas</h1>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th scope="col">Nombre</th>
@@ -20,10 +22,10 @@
             </tr>
         </thead>
         <tbody class="">
-            @foreach (var pais in Model)
+            @foreach (var liga in Model)
             {
                 <tr>
-                    <th scope="row"><a asp-controller="Liga" asp-action="Detalle" asp-route-Id="@pais.Id">@pais.Nombre</a></th>
+                    <th scope="row"><a asp-controller="Liga" asp-action="Detalle" asp-route-Id="@liga.Id">@liga.Nombre</a></th>
                     @* <td><a asp-action="Detalle" asp-route-Id="@pais.Id">Detalle <i class="bi bi-eyeglasses" style="color: black;"></i></a></td>
                     <td><a asp-action="Modificar" asp-route-Id="@pais.Id">Modificar <i class="bi bi-pencil-fill" style="color: black;"></i></a></td> *@
                 </tr>

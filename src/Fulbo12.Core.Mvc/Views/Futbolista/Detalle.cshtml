@@ -3,7 +3,5 @@
 @{
     ViewData["Title"] = "Futbolista - Detalle";
 }
-
-<a asp-controller="Futbolista" asp-action="Alta" asp-route-Id="@Model.Id"></a>
-<h2 class="text-center">@Model.Persona.NombreCompleto</h2>
-<h5 class="text-center"> @Model.Equipo.Nombre • @Model.Tipofutbolista • @Model.Posiciones</h5>
+<h2 class="text-center">@Model.Persona.NombreCompleto (@Model.Persona.Pais.Nombre)</h2>
+<h5 class="text-center"> @Model.Equipo.ToString() • @Model.Tipofutbolista.Nombre .</h5>

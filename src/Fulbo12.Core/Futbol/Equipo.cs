@@ -27,4 +27,6 @@ public class Equipo
         futbolista.Equipo = this;
         Futbolistas.Add(futbolista);
     }
+    public override string ToString()
+        => $"{Nombre} - {Liga.ToString()}";
 }

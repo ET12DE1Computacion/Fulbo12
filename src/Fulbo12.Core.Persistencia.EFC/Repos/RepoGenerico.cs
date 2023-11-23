@@ -3,9 +3,9 @@ using System.Linq.Expressions;
 namespace Fulbo12.Core.Persistencia.EFC.Repos;
 public abstract class RepoGenerico<T> : IRepo<T> where T : class
 {
-    Fulbo12Contexto _contexto;
-    protected DbSet<T> DbSet => _contexto.Set<T>();
-    public RepoGenerico(Fulbo12Contexto contexto) => _contexto = contexto;
+    protected readonly Fulbo12Contexto Contexto;
+    protected DbSet<T> DbSet => Contexto.Set<T>();
+    public RepoGenerico(Fulbo12Contexto contexto) => Contexto = contexto;
     public void Alta(T entidad) => DbSet.Add(entidad);
     public void Alta(IEnumerable<T> entidades) => DbSet.AddRange(entidades);
     public async Task AltaAsync(T entidad)
