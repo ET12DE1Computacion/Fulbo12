@@ -26,7 +26,7 @@ public class Usuario : PersonaBase
     public required List<Publicacion> Publicaciones { get; init; }
     public Usuario() { }
     [SetsRequiredMembers]
-    public Usuario(short id, string nombre, string apellido, DateTime nacimiento, Pais pais, string email)
+    public Usuario(short id, string nombre, string apellido, DateOnly nacimiento, Pais pais, string email)
         : base (id, nombre, apellido, nacimiento, pais)
     {
         Email = email;

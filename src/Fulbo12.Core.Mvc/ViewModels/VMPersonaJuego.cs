@@ -16,7 +16,7 @@ namespace Fulbo12.Core.Mvc.ViewModels
         [Required]
         [Range(1.0,2.5,ErrorMessage = "La altura tiene que estar entre {1} y {2}")]
         public float AlturaPersona { get; set; }
-        public DateTime NacimientoPersona { get; set; }
+        public DateOnly NacimientoPersona { get; set; }
         [Range(1, byte.MaxValue, ErrorMessage = "Seleccione un pais por favor")]
         public byte IdPais {get; set;}
         public short IdPersona { get; set; }

@@ -22,7 +22,7 @@ public class PublicacionTest : IClassFixture<PosesionesFixture>
         Lucho.AgregarTransferible(LuchoPosesion);
         Publicacion = new Publicacion(LuchoPosesion, _minima, _compra, dias: 3);
         Lucho.Publicar(Publicacion);
-        Beymar = new Usuario(0,"Beymar", "Leon", new DateTime(2004, 10, 10), Lucho.Pais, "bl@gmail.com");
+        Beymar = new Usuario(0,"Beymar", "Leon", new DateOnly(2004, 10, 10), Lucho.Pais, "bl@gmail.com");
     }
 
     [Fact]

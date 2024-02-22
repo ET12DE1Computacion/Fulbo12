@@ -11,11 +11,11 @@ public class UsuariosFixture
         _pf = pf ?? new PaisesFixtures();
 
         Lucho = new Usuario(1, "Luis", "Duran",
-            nacimiento: new DateTime(2000, 10, 5),
+            nacimiento: new DateOnly(2000, 10, 5),
             pais: _pf.Argentina, @"123@tmail.com");
 
         Arturo = new Usuario(2, "Arturo", "Cruz",
-            nacimiento: new DateTime(1999, 1, 1),
+            nacimiento: new DateOnly(1999, 1, 1),
             pais: _pf.Argentina, @"hola@mimail.com");
     }
 }

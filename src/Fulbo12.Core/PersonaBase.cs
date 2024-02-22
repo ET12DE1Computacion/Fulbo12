@@ -11,11 +11,11 @@ public abstract class PersonaBase
     public required string Apellido { get; set; }
 
     [Column("nacimiento")]
-    public DateTime Nacimiento { get; set; }
+    public DateOnly Nacimiento { get; set; }
     public required Pais Pais { get; set; }
     public PersonaBase() { }
     [SetsRequiredMembers]
-    public PersonaBase(short id, string nombre, string apellido, DateTime nacimiento, Pais pais)
+    public PersonaBase(short id, string nombre, string apellido, DateOnly nacimiento, Pais pais)
         => (Id, Nombre, Apellido, Nacimiento, Pais) = (id, nombre, apellido, nacimiento, pais);
 
     [NotMapped]

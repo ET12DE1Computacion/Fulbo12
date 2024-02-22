@@ -12,7 +12,7 @@ public class RepoPersona : RepoGenerico<PersonaJuego>, IRepoPersona
     {
         Expression<Func<PersonaJuego, bool>>? filtro = null;
         if (!string.IsNullOrEmpty(busqueda))
-            filtro = ps => EF.Functions.Match(new[] { ps.Nombre, ps.Apellido },
+            filtro = ps => EF.Functions.IsMatch(new[] { ps.Nombre, ps.Apellido },
                                             busqueda,
                                             MySqlMatchSearchMode.Boolean
                                             );
